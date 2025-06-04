@@ -14,7 +14,8 @@ from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from lightrag import LightRAG, QueryParam
 from lightrag.kg.shared_storage import initialize_pipeline_status
-
+from lightrag.llm.ollama import ollama_model_complete, ollama_embed
+from lightrag.utils import EmbeddingFunc, logger, set_verbose_debug
 # Load environment variables from .env file
 dotenv.load_dotenv()
 
