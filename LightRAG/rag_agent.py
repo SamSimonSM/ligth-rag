@@ -9,7 +9,6 @@ import asyncio
 import dotenv
 from pydantic_ai import RunContext
 from pydantic_ai.agent import Agent
-from openai import AsyncOpenAI
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from lightrag import LightRAG, QueryParam
