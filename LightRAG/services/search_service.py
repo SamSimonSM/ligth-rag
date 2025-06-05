@@ -13,6 +13,6 @@ class SearchService:
 
     async def query(self, question: str, param: QueryParam):
         return await self.rag.aquery(
-        "quais os melhores fiis para investir?",
+        question,
         param=QueryParam(mode="mix")
     )
