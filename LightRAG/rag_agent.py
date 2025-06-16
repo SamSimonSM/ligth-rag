@@ -12,45 +12,10 @@ from pydantic_ai.agent import Agent
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from lightrag import LightRAG, QueryParam
-from lightrag.kg.shared_storage import initialize_pipeline_status
-from lightrag.llm.ollama import ollama_model_complete, ollama_embed
-from lightrag.utils import EmbeddingFunc, logger, set_verbose_debug
+from services.rag_manager import RAGManager
+
 # Load environment variables from .env file
 dotenv.load_dotenv()
-
-WORKING_DIR = "./pydantic-docs"
-
-if not os.path.exists(WORKING_DIR):
-    os.mkdir(WORKING_DIR)
-
-
-
-async def initialize_rag():
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=ollama_model_complete,
-        llm_model_name=os.getenv("LLM_MODEL", "qwen2.5:14b"),
-        llm_model_max_token_size=8192,
-        llm_model_kwargs={
-            "host": os.getenv("LLM_BINDING_HOST", "https://llm.codeorbit.com.br"),
-            "options": {"num_ctx": 8192},
-            "timeout": int(os.getenv("TIMEOUT", "300")),
-        },
-        embedding_func=EmbeddingFunc(
-            embedding_dim=int(os.getenv("EMBEDDING_DIM", "1024")),
-            max_token_size=int(os.getenv("MAX_EMBED_TOKENS", "8192")),
-            func=lambda texts: ollama_embed(
-                texts,
-                embed_model=os.getenv("EMBEDDING_MODEL", "bge-m3:latest"),
-                host=os.getenv("EMBEDDING_BINDING_HOST", "https://llm.codeorbit.com.br"),
-            ),
-        ),
-    )
-
-
-    await rag.initialize_storages()
-
-    return rag
 
 
 @dataclass
@@ -59,17 +24,26 @@ class RAGDeps:
     lightrag: LightRAG
 
 ollama_model = OpenAIModel(
-    model_name='qwen3:32b', provider=OpenAIProvider(base_url='https://llm.codeorbit.com.br/v1')
+    model_name='qwen3:14b', provider=OpenAIProvider(base_url='https://llm.codeorbit.com.br/v1')
 )
 
 # Create the Pydantic AI agent
 agent = Agent(
     ollama_model,
     deps_type=RAGDeps,
-    system_prompt="You are a helpful assistant that answers questions about Pydantic AI based on the provided documentation. "
-                  "Use the retrieve tool to get relevant information from the Pydantic AI documentation before answering. "
-                  "If the documentation doesn't contain the answer, clearly state that the information isn't available "
-                  "in the current documentation and provide your best general knowledge response.",
+    system_prompt="Você atua como Cody Felipe, consultor da Code FIIs, empresa especializada em Fundos de Investimento Imobiliário no Brasil. "
+               "Use a ferramenta de retrieve para obter informações relevantes sobre FIIs (Fundos de Investimento Imobiliário) antes de responder. "
+               "Se a documentação não contiver a resposta, declare claramente que a informação não está disponível na documentação atual "
+               "e forneça sua melhor resposta com base em conhecimento técnico confiável. "
+               "Foque exclusivamente no mercado financeiro brasileiro e em FIIs, evitando temas fora desse escopo. "
+               "Prefira análises comparativas, critérios objetivos e dados como Dividend Yield, P/VP, Vacância, Cap Rate, IFIX, CDI, Selic, entre outros. "
+               "Utilize linguagem técnica e acessível, com precisão e clareza. "
+               "Considere sempre o cenário regulatório brasileiro, como CVM e B3. "
+               "As respostas devem ter no máximo 500 caracteres. "
+               "Nunca mencione que é uma inteligência artificial, ferramenta ou sistema automatizado. "
+               "Você responde sempre como um consultor humano da Code FIIs, com objetividade e conhecimento técnico. "
+               "Sua resposta deve conter apenas o conteúdo final da análise, sem introduções ou observações sobre o sistema."
+               "Responda sempre em Português.",
 )
 
 
@@ -84,9 +58,15 @@ async def retrieve(context: RunContext[RAGDeps], search_query: str) -> str:
     Returns:
         Formatted context information from the retrieved documents.
     """
-    return await context.deps.lightrag.aquery(
+    text = await context.deps.lightrag.aquery(
         search_query, param=QueryParam(mode="mix")
     )
+    if "</think>" in text:
+        conteudo_pos_think = text.split("</think>")[-1].strip()
+    else:
+        conteudo_pos_think = text.strip()
+
+    return conteudo_pos_think
 
 
 async def run_rag_agent(question: str,) -> str:
@@ -99,7 +79,7 @@ async def run_rag_agent(question: str,) -> str:
         The agent's response.
     """
     # Create dependencies
-    lightrag = await initialize_rag()
+    lightrag = RAGManager.get_instance()
     deps = RAGDeps(lightrag=lightrag)
     
     # Run the agent
@@ -109,15 +89,13 @@ async def run_rag_agent(question: str,) -> str:
 
 
 def main():
-    """Main function to parse arguments and run the RAG agent."""
-    parser = argparse.ArgumentParser(description="Run a Pydantic AI agent with RAG using ChromaDB")
-    parser.add_argument("--question", help="The question to answer about Pydantic AI")
-    
-    args = parser.parse_args()
-    
-    # Run the agent
-    response = asyncio.run(run_rag_agent(args.question))
-    
+    """Main function to executar o RAG agent com pergunta fixa."""
+    pergunta_fixa = "Quais melhores fundos de investimento imobiliario para investir atualmente?"
+
+    asyncio.run(RAGManager.initialize())
+
+    response = asyncio.run(run_rag_agent(pergunta_fixa))
+
     print("\nResponse:")
     print(response)
 

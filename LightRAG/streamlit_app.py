@@ -39,7 +39,7 @@ async def get_agent_deps():
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=ollama_model_complete,
-        llm_model_name=os.getenv("LLM_MODEL", "qwen2.5:14b"),
+        llm_model_name=os.getenv("LLM_MODEL", "deepseek-r1:14b"),
         llm_model_max_token_size=8192,
         llm_model_kwargs={
             "host": os.getenv("LLM_BINDING_HOST", "https://llm.codeorbit.com.br"),

@@ -14,5 +14,5 @@ class SearchService:
     async def query(self, question: str, param: QueryParam):
         return await self.rag.aquery(
         question,
-        param=QueryParam(mode="mix")
+        param
     )
