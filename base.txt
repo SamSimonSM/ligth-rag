@@ -1,0 +1,183 @@
+FII (Fundo de Investimento Imobiliário) – fundos que investem em imóveis ou ativos imobiliários. 
+
+REIT (Real Estate Investment Trust) – equivalente internacional a FII.
+
+IFIX – índice da B3 que mede o desempenho médio de vários FIIs.
+
+DY (Dividend Yield) – percentual de rendimento distribuído em relação ao preço da cota.
+
+VP (Valor Patrimonial) / NAV (Net Asset Value) – valor contábil por cota.
+
+P/VP (Preço sobre Valor Patrimonial) / P/NAV (Price to NAV) – compara preço de mercado com valor patrimonial.
+
+NOI (Net Operating Income) – lucro operacional líquido de um imóvel 
+
+Cap Rate (Capitalization Rate) – rentabilidade do imóvel: NOI ÷ valor do ativo 
+
+TIR (Taxa Interna de Retorno) / IRR (Internal Rate of Return) – retorno percentual esperado de um investimento.
+
+LTV (Loan to Value) – relação entre dívida e valor do ativo.
+
+FFO (Funds From Operations) – fluxo de caixa operacional da FII, ajustando o lucro líquido por depreciações, amortizações e ganhos/perdas com venda de ativos 
+
+
+AFFO (Adjusted Funds From Operations) – FFO ajustado para excluir CAPEX necessários à manutenção 
+
+
+FFO Yield – relação entre FFO por cota e preço da cota.
+
+AFFO Yield – relação entre AFFO por cota e preço da cota 
+
+MGI (Minimum Guaranteed Income) / RMG (Renda Mínima Garantida) – renda mínima prometida ao cotista por certo período.
+
+CDI (Certificado de Depósito Interbancário) – benchmark de referência da renda fixa no Brasil.
+
+
+
+Cota (Share) – unidade de participação no fundo.
+
+Cotista (Unitholder / Investor) – dono de cota.
+
+Rendimento / Provento (Income / Distribution) – pagamento periódico feito aos cotistas.
+
+Valor de Mercado (Market Value / Market Cap) – preço total de mercado do fundo.
+
+Liquidez (Liquidity) – volume médio diário de negociação das cotas.
+
+Quantidade de Imóveis (Property Quantity) – número de propriedades que o fundo possui.
+
+Preço por m² (Price per m²) – valor médio de compra por metro quadrado dos imóveis.
+
+Aluguel por m² (Rent per m²) – renda média por metro quadrado cobrada dos locatários.
+
+Vacância Física / Financeira (Physical / Financial Vacancy) – áreas ou receitas não ocupadas/lucradas.
+
+Benchmark – índice referência (ex.: CDI, IFIX) para medir desempenho do fundo.
+
+Subscrição (Subscription Right) – direito de compra de novas cotas em emissão.
+
+Emissão Primária / Secundária (Primary / Secondary Issuance) – lançamento ou revenda de cotas.
+
+Oferta Pública / IPO de FII (Public Offering / Initial Public Offering) – primeira captação de recursos pelo fundo.
+
+Prospecto (Prospectus) – documento com as informações da oferta.
+
+Relatório Gerencial (Management Report) – análise periódica de desempenho e gestão do fundo.
+
+Pipeline de Aquisições (Acquisition Pipeline) – lista de oportunidade de compra de ativos.
+
+Laudo de Avaliação (Appraisal Report) – relatório que estima o valor dos imóveis.
+
+Alavancagem (Leverage) – uso de dívida para ampliar o tamanho do investimento.
+
+Escritura de Cotas (Deed / Trust Deed) – contrato formal que cria o fundo.
+
+Assembleia de Cotistas (Unitholders’ Meeting) – reunião de cotistas para decisões.
+
+Distribuição de Resultados (Income Distribution) – repasse obrigatório de lucros.
+
+Fundo de Tijolo / Papel / Híbrido (Brick‑and‑Mortar / Mortgage / Hybrid FII) – classificação pelo tipo de ativo.
+
+CRI (Certificado de Recebíveis Imobiliários) – título de crédito imobiliário.
+
+Administrador / Gestor / Auditor / Custodiante – instituições que gerem, administram, auditam e guardam os ativos do fundo.
+
+Yield on Cost (YoC) – rentabilidade sobre o custo de compra das cotas.
+
+Resultado por Cota (Earnings per Share) – lucro líquido dividido por cota.
+
+Reversão de Provisão (Provision Reversal) – ajuste contábil de provisões não realizadas.
+
+Proventos (Distributions / Dividends) – remuneração periódica aos cotistas.
+
+Ex-date / Data EX (Ex-Dividend Date) – prazo para ter direito aos proventos.
+
+Data-base / Record Date – data limite para compor a base de cotistas com direito a proventos.
+
+TIR Real / Real IRR – TIR ajustada pela inflação.
+
+Ativos Relevantes / Key Assets – principais ativos que compõem e impactam o fundo.
+
+Endereço / Location – localização física de cada imóvel no portfólio.
+
+
+Ticker – código usado para identificar ações ou fundos na bolsa de valores.
+Ticker – stock symbol or ticker symbol.
+
+Balanço Patrimonial – demonstração contábil que apresenta o ativo, passivo e patrimônio líquido de uma empresa ou fundo em um determinado momento.
+Balance Sheet – financial statement showing assets, liabilities, and equity at a specific date.
+
+Cotação – preço atual de mercado de uma ação, fundo ou ativo financeiro.
+Quotation / Price – current market price of a stock, fund, or asset.
+
+Data Última Cotação – data em que foi registrada a última cotação disponível do ativo.
+Last Quotation Date – date of the most recent available price.
+
+Gestão – o grupo ou empresa responsável pela administração do fundo ou ativo.
+Management – entity or team managing the fund or asset.
+
+Imóveis – propriedades físicas (bens imóveis) que fazem parte do portfólio de um fundo imobiliário.
+Real Estate / Properties – physical properties included in a real estate investment portfolio.
+
+Indicadores – métricas financeiras e operacionais utilizadas para análise do fundo ou empresa.
+Indicators / Metrics – financial and operational metrics used for analysis.
+
+FFO Yield – rendimento do FFO (Funds From Operations) em relação ao preço da cota, indicador de rentabilidade do fundo.
+FFO Yield – yield of Funds From Operations relative to share price, a profitability indicator.
+
+FFO por Cota – valor do FFO distribuído por cota do fundo.
+FFO per Share – Funds From Operations value per share/unit.
+
+Dividend Yield – percentual do dividendo pago em relação ao preço da cota ou ação.
+Dividend Yield – dividend paid as a percentage of share/unit price.
+
+Dividendo por Cota – valor absoluto do dividendo pago por cota do fundo.
+Dividend per Share – absolute dividend amount paid per share/unit.
+
+PVP (Preço sobre Valor Patrimonial) – relação entre o preço da cota e seu valor patrimonial.
+P/B Ratio (Price-to-Book Value) – ratio between share price and book value.
+
+VP por Cota – valor patrimonial por cota do fundo.
+Book Value per Share – book value per share/unit.
+
+Mandato – conjunto de regras e objetivos que regem a atuação do fundo.
+Mandate – rules and objectives governing the fund’s operations.
+
+Mínimo 52 Semanas – menor preço registrado para o ativo nos últimos 52 semanas.
+52-Week Low – lowest price recorded in the past 52 weeks.
+
+Nome – nome do fundo, empresa ou ativo.
+Name – name of the fund, company, or asset.
+
+Número de Cotas – quantidade total de cotas emitidas pelo fundo.
+Number of Shares/Units – total number of shares or units issued.
+
+Oscilações – variações de preço ou valor do ativo em determinado período.
+Fluctuations / Price Movements – price or value changes over a period.
+
+Relatório Data – data de emissão ou referência de um relatório financeiro ou operacional.
+Report Date – date of issuance or reference of a financial or operational report.
+
+Resultado – desempenho financeiro, lucro ou prejuízo em determinado período.
+Result / Earnings – financial performance, profit or loss in a period.
+
+Segmento – setor de atuação do fundo ou empresa, como comercial, residencial, logística etc.
+Segment – sector or industry of operation (commercial, residential, logistics, etc.).
+
+Última Informação Trimestral – dados mais recentes divulgados referentes ao último trimestre.
+Latest Quarterly Information – most recent data released for the last quarter.
+
+Valor de Mercado – valor total de mercado do fundo ou empresa, calculado pelo preço da cota vezes número de cotas.
+Market Value / Market Capitalization – total market value calculated by price times number of shares.
+
+Volume Médio 2M – volume médio negociado nos últimos 2 meses.
+Average Volume (2 months) – average traded volume in the last 2 months.
+
+Receita de Venda de Ativos – receita obtida com a venda de propriedades ou ativos do fundo.
+Revenue from Asset Sales – revenue obtained from selling properties or fund assets.
+
+FFO – Funds From Operations, indicador financeiro que representa o fluxo operacional de caixa do fundo.
+Funds From Operations (FFO) – financial metric representing the operational cash flow of the fund.
+
+Rendimento Distribuído – valor distribuído aos cotistas como rendimento, dividendos ou juros.
+Distributed Yield / Income – amount distributed to shareholders as income or dividends.
