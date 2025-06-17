@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from lightrag.utils import logger
 import asyncio
 import os
 import dotenv
@@ -24,11 +23,12 @@ class NewsEmbeddingService:
         
     def processar_documento(self, doc: dict) -> str | None:
         try:
-            partes = [f"{k}: {v}" for k, v in doc.items()]
+            ignorar = {'_id', 'id', 'content', 'embedding','vetor','ligthEmbedding'}
+            partes = [f"{k}: {v}" for k, v in doc.items() if k not in ignorar]
             texto = " | ".join(partes).strip()
             return texto if texto else None
         except Exception as e:
-            logger.error(f"Erro ao processar documento ID {doc.get('_id')}: {e}")
+            print(f"Erro ao processar documento ID {doc.get('_id')}: {e}")
             return None
 
     async def tentar_insercao(self, texto: str, tentativas: int = 3, delay: float = 2.0):
@@ -37,7 +37,7 @@ class NewsEmbeddingService:
                 await self.rag.ainsert(texto)
                 return True
             except Exception as e:
-                logger.warning(f"Tentativa {i+1} falhou ao inserir. Erro: {e}")
+                print(f"Tentativa {i+1} falhou ao inserir. Erro: {e}")
                 await asyncio.sleep(delay * (2 ** i))
         return False
 
@@ -60,9 +60,9 @@ class NewsEmbeddingService:
             if sucesso:
                 self.mongo_repo.mark_as_processed(doc["_id"], self.campo_flag)
                 total_processados += 1
-                logger.info(f"Processado doc ID: {doc['_id']}")
+                print(f"Processado doc ID: {doc['_id']}")
             else:
-                logger.error(f"Falha ao inserir embedding para doc {doc['_id']}")
+                print(f"Falha ao inserir embedding para doc {doc['_id']}")
 
         return documentos[-1]["_id"], total_processados
 
@@ -74,11 +74,11 @@ class NewsEmbeddingService:
             ultimo_id_lote, processados_lote = await self.processar_lote(ultimo_id)
 
             if not ultimo_id_lote:
-                logger.info("Todos os documentos foram vetorizados.")
+                print("Todos os documentos foram vetorizados.")
                 break
 
             ultimo_id = ultimo_id_lote
             total_processados += processados_lote
-            logger.info(f"Lote finalizado. Total processados: {total_processados}")
+            print(f"Lote finalizado. Total processados: {total_processados}")
 
         return total_processados

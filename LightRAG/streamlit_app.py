@@ -19,16 +19,17 @@ from pydantic_ai.messages import (
 
 from lightrag import LightRAG
 from lightrag.llm.ollama import ollama_model_complete, ollama_embed
-from lightrag.utils import EmbeddingFunc, logger, set_verbose_debug
+from lightrag.utils import EmbeddingFunc, set_verbose_debug
 from lightrag.kg.shared_storage import initialize_pipeline_status
 
 from rag_agent import agent, RAGDeps
+from services.rag_manager import RAGManager
 
 load_dotenv()
 
 async def get_agent_deps():
     """
-    Creates a LightRAG instance
+    Gets the RAGManager singleton instance
     And then uses that to create the Pydantic AI agent dependencies.
     """
     WORKING_DIR = "./pydantic-docs"
@@ -36,28 +37,12 @@ async def get_agent_deps():
     if not os.path.exists(WORKING_DIR):
         os.mkdir(WORKING_DIR)
 
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=ollama_model_complete,
-        llm_model_name=os.getenv("LLM_MODEL", "deepseek-r1:14b"),
-        llm_model_max_token_size=8192,
-        llm_model_kwargs={
-            "host": os.getenv("LLM_BINDING_HOST", "https://llm.codeorbit.com.br"),
-            "options": {"num_ctx": 8192},
-            "timeout": int(os.getenv("TIMEOUT", "300")),
-        },
-        embedding_func=EmbeddingFunc(
-            embedding_dim=int(os.getenv("EMBEDDING_DIM", "1024")),
-            max_token_size=int(os.getenv("MAX_EMBED_TOKENS", "8192")),
-            func=lambda texts: ollama_embed(
-                texts,
-                embed_model=os.getenv("EMBEDDING_MODEL", "bge-m3:latest"),
-                host=os.getenv("EMBEDDING_BINDING_HOST", "https://llm.codeorbit.com.br"),
-            ),
-        ),
-    )
-
-    await rag.initialize_storages()
+    # Use the RAGManager singleton instance instead of creating a new LightRAG instance
+    rag = RAGManager.get_instance()
+    
+    # Initialize the storages
+    await RAGManager.initialize()
+    
     deps = RAGDeps(lightrag=rag)
     return deps
 

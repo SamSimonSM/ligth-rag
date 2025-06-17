@@ -6,7 +6,7 @@ class MongoRepository:
         self.collection = self.client[db_name][collection_name]
 
     def get_document_batch(self, campo_flag: str, batch_size: int, last_id=None):
-        filtro = {campo_flag: {"$in": [None, False]}}
+        filtro = {campo_flag: {"$in": [None, False, True]}}
         if last_id:
             filtro["_id"] = {"$gt": last_id}
         return list(self.collection.find(filtro).sort("_id", 1).limit(batch_size))

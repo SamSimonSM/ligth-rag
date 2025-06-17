@@ -1,4 +1,3 @@
-from lightrag.utils import logger
 import asyncio
 import dotenv
 from .rag_manager import RAGManager
@@ -17,7 +16,7 @@ class BaseEmbeddingService:
                 await self.rag.ainsert(texto)
                 return True
             except Exception as e:
-                logger.warning(f"Tentativa {i+1} falhou ao inserir. Erro: {e}")
+                print(f"Tentativa {i+1} falhou ao inserir. Erro: {e}")
                 await asyncio.sleep(delay * (2 ** i))
         return False
 
@@ -31,11 +30,11 @@ class BaseEmbeddingService:
             sucesso = await self.tentar_insercao(texto) 
     
             if sucesso:
-                logger.info(f"Processado doc: {file_path}")
+                print(f"Processado doc: {file_path}")
             else:
-                logger.error(f"Falha ao inserir embedding para doc: {file_path}")
+                print(f"Falha ao inserir embedding para doc: {file_path}")
         except Exception as e:
-                logger.warning(f"Tentativa falhou. Erro: {e}")
+                print(f"Tentativa falhou. Erro: {e}")
                 return e
         return sucesso
     
