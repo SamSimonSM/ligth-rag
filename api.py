@@ -1,13 +1,12 @@
 from fastapi import FastAPI, HTTPException
-from services.news_embedding_service import NewsEmbeddingService
-from services.fiis_embedding_service import FiisEmbeddingService
-from services.fiis_details_embedding_service import FiisDetailsEmbeddingService
-from services.base_embedding_service import BaseEmbeddingService
+from lightRAG.services.news_embedding_service import NewsEmbeddingService
+from lightRAG.services.fiis_embedding_service import FiisEmbeddingService
+from lightRAG.services.fiis_details_embedding_service import FiisDetailsEmbeddingService
+from lightRAG.services.base_embedding_service import BaseEmbeddingService
 import os
-from services.search_service import SearchService
+from lightRAG.services.search_service import SearchService
 from lightrag import QueryParam
-from services.rag_manager import RAGManager
-from repositories.mongo_repository import MongoRepository
+from lightRAG.services.rag_manager import RAGManager
 
 
 app = FastAPI()

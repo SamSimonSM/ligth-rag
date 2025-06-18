@@ -2,9 +2,8 @@ from pymongo import MongoClient
 import asyncio
 import os
 import dotenv
-import time
 from .rag_manager import RAGManager
-from repositories.mongo_repository import MongoRepository
+from ..repositories.mongo_repository import MongoRepository
 
 
 
