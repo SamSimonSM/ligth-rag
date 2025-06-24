@@ -11,7 +11,7 @@ from pydantic_ai import RunContext
 from pydantic_ai.agent import Agent
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
-from lightrag import LightRAG, QueryParam
+from lightragDoc import LightRAG, QueryParam
 from services.rag_manager import RAGManager
 
 # Load environment variables from .env file
@@ -79,7 +79,7 @@ async def run_rag_agent(question: str,) -> str:
         The agent's response.
     """
     # Create dependencies
-    lightrag = RAGManager.get_instance()
+    lightrag = RAGManagerGemini.get_instance()
     deps = RAGDeps(lightrag=lightrag)
     
     # Run the agent

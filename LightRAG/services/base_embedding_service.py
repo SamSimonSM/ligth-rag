@@ -1,13 +1,18 @@
 import asyncio
 import dotenv
 from .rag_manager import RAGManager
+from .rag_manager_gemini import RAGManagerGemini
 
 
 dotenv.load_dotenv()
 
 class BaseEmbeddingService:
-    def __init__(self):
-        self.rag = RAGManager.get_instance()
+    def __init__(self, llm=None):
+        self.llm = llm
+        if llm == "gemini":
+            self.rag = RAGManagerGemini.get_instance()
+        else:
+            self.rag = RAGManager.get_instance()
         
 
     async def tentar_insercao(self, texto: str, tentativas: int = 3, delay: float = 2.0):

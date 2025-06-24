@@ -1,5 +1,5 @@
 import os
-from lightrag import LightRAG
+from lightragDoc import LightRAG
 from lightrag.llm.ollama import ollama_model_complete, ollama_embed
 from lightrag.llm.hf import hf_model_complete, hf_embed
 from lightrag.kg.shared_storage import initialize_pipeline_status

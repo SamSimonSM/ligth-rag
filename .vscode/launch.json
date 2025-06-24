@@ -14,8 +14,7 @@
                 "api:app",
                 "--reload"
             ],
-            "jinja": true,
-            "cwd": "${workspaceFolder}/LightRAG"
+            "jinja": true
         }
     ]
 }

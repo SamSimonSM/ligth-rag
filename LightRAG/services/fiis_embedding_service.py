@@ -3,6 +3,7 @@ import asyncio
 import os
 import dotenv
 from .rag_manager import RAGManager
+from .rag_manager_gemini import RAGManagerGemini
 from ..repositories.mongo_repository import MongoRepository
 
 
@@ -17,10 +18,14 @@ FIIS_COLLECTION_NAME = os.getenv("FIIS_COLLECTION_NAME")
 mongo_repo = MongoRepository(MONGO_URI, DB_NAME, FIIS_COLLECTION_NAME)
 
 class FiisEmbeddingService:
-    def __init__(self):
+    def __init__(self, llm=None):
         self.mongo_repo = mongo_repo
         self.tamanho_lote = int(os.getenv("BATCH_SIZE", "100"))
-        self.rag = RAGManager.get_instance()
+        self.llm = llm
+        if llm == "gemini":
+            self.rag = RAGManagerGemini.get_instance()
+        else:
+            self.rag = RAGManager.get_instance()
         self.campo_flag = "ligthEmbedding"
 
         

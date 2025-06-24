@@ -17,7 +17,7 @@ from pydantic_ai.messages import (
     ModelMessagesTypeAdapter
 )
 
-from lightrag import LightRAG
+from .lightragDoc import LightRAG
 from lightrag.llm.ollama import ollama_model_complete, ollama_embed
 from lightrag.utils import EmbeddingFunc, set_verbose_debug
 from lightrag.kg.shared_storage import initialize_pipeline_status
@@ -38,7 +38,7 @@ async def get_agent_deps():
         os.mkdir(WORKING_DIR)
 
     # Use the RAGManager singleton instance instead of creating a new LightRAG instance
-    rag = RAGManager.get_instance()
+    rag = RAGManagerGemini.get_instance()
     
     # Initialize the storages
     await RAGManager.initialize()
