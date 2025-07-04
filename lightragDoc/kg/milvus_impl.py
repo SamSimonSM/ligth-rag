@@ -3,7 +3,7 @@ import os
 from typing import Any, final
 from dataclasses import dataclass
 import numpy as np
-from lightrag.utils import logger, compute_mdhash_id
+from lightragDoc.utils import logger, compute_mdhash_id
 from ..base import BaseVectorStorage
 import pipmaster as pm
 

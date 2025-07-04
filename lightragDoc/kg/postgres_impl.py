@@ -8,7 +8,7 @@ from typing import Any, Union, final
 import numpy as np
 import configparser
 
-from lightrag.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
+from lightragDoc.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
 
 from tenacity import (
     retry,

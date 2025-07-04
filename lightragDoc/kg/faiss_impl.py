@@ -8,8 +8,8 @@ import numpy as np
 from dataclasses import dataclass
 import pipmaster as pm
 
-from lightrag.utils import logger, compute_mdhash_id
-from lightrag.base import BaseVectorStorage
+from lightragDoc.utils import logger, compute_mdhash_id
+from lightragDoc.base import BaseVectorStorage
 
 from .shared_storage import (
     get_storage_lock,
@@ -30,7 +30,7 @@ if not pm.is_installed(FAISS_PACKAGE):
 @dataclass
 class FaissVectorDBStorage(BaseVectorStorage):
     """
-    A Faiss-based Vector DB Storage for LightRAG.
+    A Faiss-based Vector DB Storage for lightragDoc.
     Uses cosine similarity by storing normalized vectors in a Faiss index with inner product search.
     """
 

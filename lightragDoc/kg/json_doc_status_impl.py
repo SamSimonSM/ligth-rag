@@ -2,12 +2,12 @@ from dataclasses import dataclass
 import os
 from typing import Any, Union, final
 
-from lightrag.base import (
+from lightragDoc.base import (
     DocProcessingStatus,
     DocStatus,
     DocStatusStorage,
 )
-from lightrag.utils import (
+from lightragDoc.utils import (
     load_json,
     logger,
     write_json,

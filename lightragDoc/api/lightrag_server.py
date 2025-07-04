@@ -17,7 +17,7 @@ from ascii_colors import ASCIIColors
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from dotenv import load_dotenv
-from lightrag.api.utils_api import (
+from lightragDoc.api.utils_api import (
     get_combined_auth_dependency,
     display_splash_screen,
     check_env_file,
@@ -27,34 +27,34 @@ from .config import (
     update_uvicorn_mode_config,
     get_default_host,
 )
-from lightrag.utils import get_env_value
+from lightragDoc.utils import get_env_value
 import sys
-from .lightragDoc import LightRAG, __version__ as core_version
-from lightrag.api import __api_version__
-from lightrag.types import GPTKeywordExtractionFormat
-from lightrag.utils import EmbeddingFunc
-from lightrag.constants import (
+from lightragDoc import LightRAG, __version__ as core_version
+from lightragDoc.api import __api_version__
+from lightragDoc.types import GPTKeywordExtractionFormat
+from lightragDoc.utils import EmbeddingFunc
+from lightragDoc.constants import (
     DEFAULT_LOG_MAX_BYTES,
     DEFAULT_LOG_BACKUP_COUNT,
     DEFAULT_LOG_FILENAME,
 )
-from lightrag.api.routers.document_routes import (
+from lightragDoc.api.routers.document_routes import (
     DocumentManager,
     create_document_routes,
     run_scanning_process,
 )
-from lightrag.api.routers.query_routes import create_query_routes
-from lightrag.api.routers.graph_routes import create_graph_routes
-from lightrag.api.routers.ollama_api import OllamaAPI
+from lightragDoc.api.routers.query_routes import create_query_routes
+from lightragDoc.api.routers.graph_routes import create_graph_routes
+from lightragDoc.api.routers.ollama_api import OllamaAPI
 
-from lightrag.utils import logger, set_verbose_debug
-from lightrag.kg.shared_storage import (
+from lightragDoc.utils import logger, set_verbose_debug
+from lightragDoc.kg.shared_storage import (
     get_namespace_data,
     get_pipeline_status_lock,
     initialize_pipeline_status,
 )
 from fastapi.security import OAuth2PasswordRequestForm
-from lightrag.api.auth import auth_handler
+from lightragDoc.api.auth import auth_handler
 
 # use the .env that is inside the current folder
 # allows to use different .env file for each lightrag instance
@@ -199,19 +199,19 @@ def create_app(args):
     # Create working directory if it doesn't exist
     Path(args.working_dir).mkdir(parents=True, exist_ok=True)
     if args.llm_binding == "lollms" or args.embedding_binding == "lollms":
-        from lightrag.llm.lollms import lollms_model_complete, lollms_embed
+        from lightragDoc.llm.lollms import lollms_model_complete, lollms_embed
     if args.llm_binding == "ollama" or args.embedding_binding == "ollama":
-        from lightrag.llm.ollama import ollama_model_complete, ollama_embed
+        from lightragDoc.llm.ollama import ollama_model_complete, ollama_embed
     if args.llm_binding == "openai" or args.embedding_binding == "openai":
-        from lightrag.llm.openai import openai_complete_if_cache, openai_embed
+        from lightragDoc.llm.openai import openai_complete_if_cache, openai_embed
     if args.llm_binding == "azure_openai" or args.embedding_binding == "azure_openai":
-        from lightrag.llm.azure_openai import (
+        from lightragDoc.llm.azure_openai import (
             azure_openai_complete_if_cache,
             azure_openai_embed,
         )
     if args.llm_binding_host == "openai-ollama" or args.embedding_binding == "ollama":
-        from lightrag.llm.openai import openai_complete_if_cache
-        from lightrag.llm.ollama import ollama_embed
+        from lightragDoc.llm.openai import openai_complete_if_cache
+        from lightragDoc.llm.ollama import ollama_embed
 
     async def openai_alike_model_complete(
         prompt,
@@ -606,7 +606,7 @@ def configure_logging():
             },
             "filters": {
                 "path_filter": {
-                    "()": "lightrag.utils.LightragPathFilter",
+                    "()": "lightragDoc.utils.LightragPathFilter",
                 },
             },
         }

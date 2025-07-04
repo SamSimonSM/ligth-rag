@@ -1,9 +1,9 @@
 import os
 from lightragDoc import LightRAG
-from lightrag.llm.ollama import ollama_model_complete, ollama_embed
-from lightrag.llm.hf import hf_model_complete, hf_embed
-from lightrag.kg.shared_storage import initialize_pipeline_status
-from lightrag.utils import EmbeddingFunc, setup_logger
+from lightragDoc.llm.ollama import ollama_model_complete, ollama_embed
+from lightragDoc.llm.hf import hf_model_complete, hf_embed
+from lightragDoc.kg.shared_storage import initialize_pipeline_status
+from lightragDoc.utils import EmbeddingFunc, setup_logger
 from transformers import AutoModel, AutoTokenizer
 from dotenv import load_dotenv
 

@@ -32,11 +32,11 @@ from tenacity import (
     wait_exponential,
     retry_if_exception_type,
 )
-from lightrag.utils import (
+from lightragDoc.utils import (
     safe_unicode_decode,
     logger,
 )
-from lightrag.api import __api_version__
+from lightragDoc.api import __api_version__
 
 
 # Custom exception for retry mechanism

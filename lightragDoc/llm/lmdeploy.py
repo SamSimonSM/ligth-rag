@@ -4,7 +4,7 @@ import pipmaster as pm  # Pipmaster for dynamic library install
 if not pm.is_installed("lmdeploy"):
     pm.install("lmdeploy[all]")
 
-from lightrag.exceptions import (
+from lightragDoc.exceptions import (
     APIConnectionError,
     RateLimitError,
     APITimeoutError,

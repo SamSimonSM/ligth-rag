@@ -5,12 +5,12 @@ from dataclasses import dataclass
 import numpy as np
 import time
 
-from lightrag.utils import (
+from lightragDoc.utils import (
     logger,
     compute_mdhash_id,
 )
 import pipmaster as pm
-from lightrag.base import BaseVectorStorage
+from lightragDoc.base import BaseVectorStorage
 
 if not pm.is_installed("nano-vectordb"):
     pm.install("nano-vectordb")

@@ -1,8 +1,8 @@
 import os
 from lightragDoc import LightRAG
-from lightrag.llm.hf import hf_embed
-from lightrag.kg.shared_storage import initialize_pipeline_status
-from lightrag.utils import EmbeddingFunc, setup_logger
+from lightragDoc.llm.hf import hf_embed
+from lightragDoc.kg.shared_storage import initialize_pipeline_status
+from lightragDoc.utils import EmbeddingFunc, setup_logger
 from transformers import AutoModel, AutoTokenizer
 from google import genai
 from google.genai import types

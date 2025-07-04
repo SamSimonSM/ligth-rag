@@ -4,7 +4,7 @@ This module contains all document-related routes for the LightRAG API.
 
 import asyncio
 from pyuca import Collator
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 import aiofiles
 import shutil
 import traceback
@@ -22,9 +22,9 @@ from fastapi import (
 )
 from pydantic import BaseModel, Field, field_validator
 
-from .lightragDoc import LightRAG
-from lightrag.base import DeletionResult, DocProcessingStatus, DocStatus
-from lightrag.api.utils_api import get_combined_auth_dependency
+from lightragDoc import LightRAG
+from lightragDoc.base import DeletionResult, DocProcessingStatus, DocStatus
+from lightragDoc.api.utils_api import get_combined_auth_dependency
 from ..config import global_args
 
 
@@ -1073,7 +1073,7 @@ def create_document_routes(
             HTTPException: Raised when a serious error occurs during the clearing process,
                           with status code 500 and error details in the detail field.
         """
-        from lightrag.kg.shared_storage import (
+        from lightragDoc.kg.shared_storage import (
             get_namespace_data,
             get_pipeline_status_lock,
         )
@@ -1260,7 +1260,7 @@ def create_document_routes(
             HTTPException: If an error occurs while retrieving pipeline status (500)
         """
         try:
-            from lightrag.kg.shared_storage import (
+            from lightragDoc.kg.shared_storage import (
                 get_namespace_data,
                 get_all_update_flags_status,
             )
@@ -1411,7 +1411,7 @@ def create_document_routes(
                 status_code=403,
                 detail="Operation not allowed when LLM cache for entity extraction is disabled.",
             )
-        from lightrag.kg.shared_storage import (
+        from lightragDoc.kg.shared_storage import (
             get_namespace_data,
             get_pipeline_status_lock,
         )

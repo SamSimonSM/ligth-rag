@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from typing import Any, Dict, List, NamedTuple, Optional, Union, final
 import pipmaster as pm
-from lightrag.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
+from lightragDoc.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
 
 from tenacity import (
     retry,
@@ -16,7 +16,7 @@ from tenacity import (
     wait_exponential,
 )
 
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 
 from ..base import BaseGraphStorage
 

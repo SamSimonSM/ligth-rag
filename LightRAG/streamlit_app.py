@@ -17,10 +17,10 @@ from pydantic_ai.messages import (
     ModelMessagesTypeAdapter
 )
 
-from .lightragDoc import LightRAG
-from lightrag.llm.ollama import ollama_model_complete, ollama_embed
-from lightrag.utils import EmbeddingFunc, set_verbose_debug
-from lightrag.kg.shared_storage import initialize_pipeline_status
+from lightragDoc import LightRAG
+from lightragDoc.llm.ollama import ollama_model_complete, ollama_embed
+from lightragDoc.utils import EmbeddingFunc, set_verbose_debug
+from lightragDoc.kg.shared_storage import initialize_pipeline_status
 
 from rag_agent import agent, RAGDeps
 from services.rag_manager import RAGManager

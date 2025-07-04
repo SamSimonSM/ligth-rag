@@ -105,26 +105,27 @@ async def search_endpoint(question: str, llm: str = Query(None, description="LLM
             "Seja objetivo, factual e evite especulações."
         )
         
-        result = await service.query(
-            question,
-            param=QueryParam(mode="local", user_prompt=user_prompt)
-        )
-        result1 = await service.query(
-            question,
-            param=QueryParam(mode="global", user_prompt=user_prompt)
-        )
-        result2 = await service.query(
-            question,
-            param=QueryParam(mode="hybrid", user_prompt=user_prompt)
-        )
-        result3 = await service.query(
-            question,
-            param=QueryParam(mode="naive", user_prompt=user_prompt)
-        )
+        # result = await service.query(
+        #     question,
+        #     param=QueryParam(mode="local", user_prompt=user_prompt)
+        # )
+        # result1 = await service.query(
+        #     question,
+        #     param=QueryParam(mode="global", user_prompt=user_prompt)
+        # )
+        # result2 = await service.query(
+        #     question,
+        #     param=QueryParam(mode="hybrid", user_prompt=user_prompt)
+        # )
+        # result3 = await service.query(
+        #     question,
+        #     param=QueryParam(mode="naive", user_prompt=user_prompt)
+        # )
         result4 = await service.query(
             question,
             param=QueryParam(mode="mix", user_prompt=user_prompt)
         )
-        return {"local": result, "global":result1,"hybrid":result2, "naive": result3, "mix": result4, "llm_used": llm or "default"}
+        return {"mix": result4, "llm_used": llm or "default"}
+        # return {"local": result, "global":result1,"hybrid":result2, "naive": result3, "mix": result4, "llm_used": llm or "default"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during RAG query: {e}")

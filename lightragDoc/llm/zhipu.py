@@ -25,12 +25,12 @@ from tenacity import (
     retry_if_exception_type,
 )
 
-from lightrag.utils import (
+from lightragDoc.utils import (
     wrap_embedding_func_with_attrs,
     logger,
 )
 
-from lightrag.types import GPTKeywordExtractionFormat
+from lightragDoc.types import GPTKeywordExtractionFormat
 
 import numpy as np
 from typing import Union, List, Optional, Dict

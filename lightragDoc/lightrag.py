@@ -21,18 +21,18 @@ from typing import (
     List,
     Dict,
 )
-from lightrag.constants import (
+from lightragDoc.constants import (
     DEFAULT_MAX_TOKEN_SUMMARY,
     DEFAULT_FORCE_LLM_SUMMARY_ON_MERGE,
 )
-from lightrag.utils import get_env_value
+from lightragDoc.utils import get_env_value
 
-from lightrag.kg import (
+from lightragDoc.kg import (
     STORAGES,
     verify_storage_implementation,
 )
 
-from lightrag.kg.shared_storage import (
+from lightragDoc.kg.shared_storage import (
     get_namespace_data,
     get_pipeline_status_lock,
     get_graph_db_lock,
@@ -286,7 +286,7 @@ class LightRAG:
     _storages_status: StoragesStatus = field(default=StoragesStatus.NOT_CREATED)
 
     def __post_init__(self):
-        from lightrag.kg.shared_storage import (
+        from lightragDoc.kg.shared_storage import (
             initialize_share_data,
         )
 

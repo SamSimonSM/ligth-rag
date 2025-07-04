@@ -7,12 +7,12 @@ import os
 import sys
 import signal
 import pipmaster as pm
-from lightrag.api.utils_api import display_splash_screen, check_env_file
-from lightrag.api.config import global_args
-from lightrag.utils import get_env_value
-from lightrag.kg.shared_storage import initialize_share_data, finalize_share_data
+from lightragDoc.api.utils_api import display_splash_screen, check_env_file
+from lightragDoc.api.config import global_args
+from lightragDoc.utils import get_env_value
+from lightragDoc.kg.shared_storage import initialize_share_data, finalize_share_data
 
-from lightrag.constants import (
+from lightragDoc.constants import (
     DEFAULT_WOKERS,
     DEFAULT_TIMEOUT,
 )
@@ -122,7 +122,7 @@ def main():
             }
 
             # Import and configure the gunicorn_config module
-            from lightrag.api import gunicorn_config
+            from lightragDoc.api import gunicorn_config
 
             # Set configuration variables in gunicorn_config, prioritizing command line arguments
             gunicorn_config.workers = (
@@ -202,7 +202,7 @@ def main():
 
         def load(self):
             # Import the application
-            from lightrag.api.lightrag_server import get_application
+            from lightragDoc.api.lightrag_server import get_application
 
             return get_application(global_args)
 

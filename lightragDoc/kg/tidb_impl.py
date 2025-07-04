@@ -5,7 +5,7 @@ from typing import Any, Union, final
 import time
 import numpy as np
 
-from lightrag.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
+from lightragDoc.types import KnowledgeGraph, KnowledgeGraphNode, KnowledgeGraphEdge
 
 
 from ..base import BaseGraphStorage, BaseKVStorage, BaseVectorStorage

@@ -7,9 +7,9 @@ import argparse
 from typing import Optional, List, Tuple
 import sys
 from ascii_colors import ASCIIColors
-from lightrag.api import __api_version__ as api_version
-from .lightragDoc import __version__ as core_version
-from lightrag.constants import (
+from lightragDoc.api import __api_version__ as api_version
+from lightragDoc import __version__ as core_version
+from lightragDoc.constants import (
     DEFAULT_MAX_TOKEN_SUMMARY,
     DEFAULT_FORCE_LLM_SUMMARY_ON_MERGE,
 )

@@ -5,7 +5,7 @@ from llama_index.core.llms import (
     ChatResponse,
 )
 from typing import List, Optional
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 
 # Install required dependencies
 if not pm.is_installed("llama-index"):
@@ -19,11 +19,11 @@ from tenacity import (
     wait_exponential,
     retry_if_exception_type,
 )
-from lightrag.utils import (
+from lightragDoc.utils import (
     wrap_embedding_func_with_attrs,
     locate_json_string_body_from_string,
 )
-from lightrag.exceptions import (
+from lightragDoc.exceptions import (
     APIConnectionError,
     RateLimitError,
     APITimeoutError,

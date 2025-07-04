@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional, Type
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 import time
 import json
 import re
@@ -9,9 +9,9 @@ from enum import Enum
 from fastapi.responses import StreamingResponse
 import asyncio
 from ascii_colors import trace_exception
-from .lightragDoc import LightRAG, QueryParam
-from lightrag.utils import TiktokenTokenizer
-from lightrag.api.utils_api import ollama_server_infos, get_combined_auth_dependency
+from lightragDoc import LightRAG, QueryParam
+from lightragDoc.utils import TiktokenTokenizer
+from lightragDoc.api.utils_api import ollama_server_infos, get_combined_auth_dependency
 from fastapi import Depends
 
 

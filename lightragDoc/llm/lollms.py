@@ -17,7 +17,7 @@ from tenacity import (
     retry_if_exception_type,
 )
 
-from lightrag.exceptions import (
+from lightragDoc.exceptions import (
     APIConnectionError,
     RateLimitError,
     APITimeoutError,

@@ -11,9 +11,9 @@ if not pm.is_installed("redis"):
 # aioredis is a depricated library, replaced with redis
 from redis.asyncio import Redis, ConnectionPool  # type: ignore
 from redis.exceptions import RedisError, ConnectionError  # type: ignore
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 
-from lightrag.base import BaseKVStorage
+from lightragDoc.base import BaseKVStorage
 import json
 
 

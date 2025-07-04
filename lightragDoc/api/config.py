@@ -6,9 +6,9 @@ import os
 import argparse
 import logging
 from dotenv import load_dotenv
-from lightrag.utils import get_env_value
+from lightragDoc.utils import get_env_value
 
-from lightrag.constants import (
+from lightragDoc.constants import (
     DEFAULT_WOKERS,
     DEFAULT_TIMEOUT,
 )

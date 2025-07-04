@@ -7,7 +7,7 @@ import logging
 from typing import Any, Dict, List, Literal, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
-from lightrag.base import QueryParam
+from lightragDoc.base import QueryParam
 from ..utils_api import get_combined_auth_dependency
 from pydantic import BaseModel, Field, field_validator
 

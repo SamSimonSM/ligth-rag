@@ -19,16 +19,16 @@ from tenacity import (
     wait_exponential,
     retry_if_exception_type,
 )
-from lightrag.exceptions import (
+from lightragDoc.exceptions import (
     APIConnectionError,
     RateLimitError,
     APITimeoutError,
 )
-from lightrag.api import __api_version__
+from lightragDoc.api import __api_version__
 
 import numpy as np
 from typing import Union
-from lightrag.utils import logger
+from lightragDoc.utils import logger
 
 
 @retry(
